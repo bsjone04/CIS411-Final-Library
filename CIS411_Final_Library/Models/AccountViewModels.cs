@@ -64,6 +64,9 @@ namespace CIS411_Final_Library.Models
 
     public class RegisterViewModel
     {
+        [Display(Name = "UserRoles")]
+        public string UserRoles { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
