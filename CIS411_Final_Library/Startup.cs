@@ -22,14 +22,28 @@ namespace CIS411_Final_Library
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
 
-            // In Startup iam creating first Admin Role and creating a default Admin User    
+            // In Startup iam creating first Admin Role
             if (!roleManager.RoleExists("Admin"))
             {
 
-                // first we create Admin rool   
+                // first we create Admin role   
                 var role = new IdentityRole();
                 role.Name = "Admin";
                 roleManager.Create(role);
+
+                var user = new ApplicationUser();
+                user.Email = "syedshanumcain@gmail.com";
+
+                string userPWD = "A@Z200711";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                //Add default User to Role Admin   
+                if (chkUser.Succeeded)
+                {
+                    var result1 = UserManager.AddToRole(user.Id, "Admin");
+
+                }
             }
 
             // creating Creating Manager role    

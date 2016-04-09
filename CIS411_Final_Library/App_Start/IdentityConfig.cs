@@ -86,6 +86,16 @@ namespace CIS411_Final_Library
             }
             return manager;
         }
+
+        internal Task ChangePasswordAsync(string v, string firstname)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal Task ChangeFirstName(string v, string firstname)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     // Configure the application sign-in manager which is used in this application.

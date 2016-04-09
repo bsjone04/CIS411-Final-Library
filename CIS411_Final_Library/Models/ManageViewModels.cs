@@ -12,6 +12,8 @@ namespace CIS411_Final_Library.Models
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 
     public class ManageLoginsViewModel
@@ -58,6 +60,20 @@ namespace CIS411_Final_Library.Models
         public string ConfirmPassword { get; set; }
     }
 
+    public class ChangeFirstNameViewModel
+    {
+        [Required]
+        [Display(Name = "First Name")]
+        public string Firstname { get; set; }
+    }
+
+    public class ChangeLastNameViewModel
+    {
+        [Required]
+        [Display(Name = "Last Name")]
+        public string Lastname { get; set; }
+    }
+    
     public class AddPhoneNumberViewModel
     {
         [Required]

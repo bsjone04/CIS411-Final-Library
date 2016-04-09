@@ -61,6 +61,8 @@ namespace CIS411_Final_Library.Controllers
                 : message == ManageMessageId.Error ? "An error has occurred."
                 : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
+                : message == ManageMessageId.ChangeFirstNameSuccess ? "Your first name was changed."
+                : message == ManageMessageId.ChangeLastNameSuccess ? "Your last name was changed."
                 : "";
 
             var userId = User.Identity.GetUserId();
@@ -97,6 +99,47 @@ namespace CIS411_Final_Library.Controllers
                 message = ManageMessageId.Error;
             }
             return RedirectToAction("ManageLogins", new { Message = message });
+        }
+
+
+
+        //
+        // GET: /Manage/ChangeFirstName
+        public ActionResult ChangeFirstNAme()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Manage/ChangeFirstNAme
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ChangeFirstName(ChangeFirstNameViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            // Generate the token and send it
+            var result = await UserManager.ChangeFirstName(User.Identity.GetUserId(), model.Firstname);
+            if (result.Successed)
+            {
+                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                if (user != null)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                }
+                return RedirectToAction("Index", new { Message = ManageMessageId.ChangeFirstNameSuccess });
+            }
+            AddErrors(result);
+            return View(model);
+        }
+
+        //
+        // GET: /Manage/ChangelastName
+        public ActionResult ChangeLastName()
+        {
+            return View();
         }
 
         //
@@ -379,7 +422,9 @@ namespace CIS411_Final_Library.Controllers
             SetPasswordSuccess,
             RemoveLoginSuccess,
             RemovePhoneSuccess,
-            Error
+            Error,
+            ChangeFirstNameSuccess,
+            ChangeLastNameSuccess
         }
 
 #endregion

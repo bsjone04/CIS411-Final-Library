@@ -66,3 +66,4 @@ C:\Users\MAX MAN\Documents\GitHub\CIS411-Final-Library\CIS411_Final_Library\bin\
 C:\Users\MAX MAN\Documents\GitHub\CIS411-Final-Library\CIS411_Final_Library\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\MAX MAN\Documents\GitHub\CIS411-Final-Library\CIS411_Final_Library\obj\Debug\CIS411_Final_Library.dll
 C:\Users\MAX MAN\Documents\GitHub\CIS411-Final-Library\CIS411_Final_Library\obj\Debug\CIS411_Final_Library.pdb
+C:\Users\MAX MAN\Documents\GitHub\CIS411-Final-Library\CIS411_Final_Library\obj\Debug\CIS411_Final_Library.csprojResolveAssemblyReference.cache
