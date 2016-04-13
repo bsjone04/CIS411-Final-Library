@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace CIS411_Final_Library.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
 
     public class UserController : Controller
     {

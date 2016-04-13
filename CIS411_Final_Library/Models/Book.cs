@@ -26,12 +26,14 @@ namespace CIS411_Final_Library.Models
         [Required(ErrorMessage = "Quantity is required")]
         public Int32 Quantity { get; set; }
 
-        //Book Author
-        [DisplayName("Author")]
-        public string UserId { get; set; }
+        public string Votes { get; set; }
 
-        [ForeignKey("UserId")]
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        ////Book Author
+        //[DisplayName("Author")]
+        //public string UserId { get; set; }
+
+        //[ForeignKey("UserId")]
+        //public virtual ApplicationUser ApplicationUser { get; set; }
 
 
 

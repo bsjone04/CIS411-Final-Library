@@ -13,17 +13,18 @@ namespace CIS411_Final_Library.Models
     {
         public Int32 CheckoutID { get; set; }
 
-        [DisplayName("User")]
-        public string UserId { get; set; }
+        //[DisplayName("User")]
+        //public string UserId { get; set; }
 
-        [ForeignKey("UserId")]
-        public virtual ApplicationUser ApplicationUser { get; set; }
+            
+        //[ForeignKey("UserId")]
+        //public virtual ApplicationUser ApplicationUser { get; set; }
 
-        [DisplayName("Book")]
-        public string BookId { get; set; }
+        //[DisplayName("Book")]
+        //public string BookId { get; set; }
 
-        [ForeignKey("BookId")]
-        public virtual Book Book { get; set; }
+        //[ForeignKey("BookId")]
+        //public virtual Book Book { get; set; }
 
         [DataType(DataType.DateTime)]
         [DisplayName("Checkout Date")]

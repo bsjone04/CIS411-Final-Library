@@ -110,30 +110,30 @@ namespace CIS411_Final_Library.Controllers
             return View();
         }
 
-        //
-        // POST: /Manage/ChangeFirstNAme
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ChangeFirstName(ChangeFirstNameViewModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-            // Generate the token and send it
-            var result = await UserManager.ChangeFirstName(User.Identity.GetUserId(), model.Firstname);
-            if (result.Successed)
-            {
-                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-                if (user != null)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangeFirstNameSuccess });
-            }
-            AddErrors(result);
-            return View(model);
-        }
+        ////
+        //// POST: /Manage/ChangeFirstNAme
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> ChangeFirstName(ChangeFirstNameViewModel model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(model);
+        //    }
+        //    // Generate the token and send it
+        //    var result = await UserManager.ChangeFirstName(User.Identity.GetUserId(), model.Firstname);
+        //    if (result.Successed)
+        //    {
+        //        var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+        //        if (user != null)
+        //        {
+        //            await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+        //        }
+        //        return RedirectToAction("Index", new { Message = ManageMessageId.ChangeFirstNameSuccess });
+        //    }
+        //    AddErrors(result);
+        //    return View(model);
+        //}
 
         //
         // GET: /Manage/ChangelastName

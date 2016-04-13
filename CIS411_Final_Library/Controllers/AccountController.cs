@@ -155,7 +155,7 @@ namespace CIS411_Final_Library.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.Firstname, LastName = model.Lastname };
+                var user = new ApplicationUser { UserName = model.Firstname + " " +model.Lastname, Email = model.Email, FirstName = model.Firstname, LastName = model.Lastname };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
