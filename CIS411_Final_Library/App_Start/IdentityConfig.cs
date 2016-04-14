@@ -54,10 +54,10 @@ namespace CIS411_Final_Library
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
+                RequireNonLetterOrDigit = false,
+                RequireDigit = false,
                 RequireLowercase = true,
-                RequireUppercase = true,
+                RequireUppercase = false,
             };
 
             // Configure user lockout defaults
@@ -87,15 +87,6 @@ namespace CIS411_Final_Library
             return manager;
         }
 
-        internal Task ChangePasswordAsync(string v, string firstname)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal Task ChangeFirstName(string v, string firstname)
-        {
-            throw new NotImplementedException();
-        }
     }
 
     // Configure the application sign-in manager which is used in this application.

@@ -11,20 +11,11 @@ namespace CIS411_Final_Library.Models
 {
     public class Checkout
     {
-        public Int32 CheckoutID { get; set; }
+        public int CheckoutID { get; set; }
 
-        //[DisplayName("User")]
-        //public string UserId { get; set; }
+        public string UserId { get; set; }
 
-            
-        //[ForeignKey("UserId")]
-        //public virtual ApplicationUser ApplicationUser { get; set; }
-
-        //[DisplayName("Book")]
-        //public string BookId { get; set; }
-
-        //[ForeignKey("BookId")]
-        //public virtual Book Book { get; set; }
+        public int BookId { get; set; }
 
         [DataType(DataType.DateTime)]
         [DisplayName("Checkout Date")]
@@ -39,6 +30,10 @@ namespace CIS411_Final_Library.Models
         [DataType(DataType.DateTime)]
         [DisplayName("Due Date")]
         public DateTime DueDate { get; set; }
+
+
+        public virtual ApplicationUser ApplicationUsers { get; set; }       
+        public virtual ICollection <Book> Books { get; set; }
 
 
     }

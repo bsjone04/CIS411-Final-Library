@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace CIS411_Final_Library.Models
 {
@@ -24,6 +25,26 @@ namespace CIS411_Final_Library.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Book> Books { get; set; }
+        public DbSet<Checkout> Checkouts { get; set; }
+        public DbSet<Rate> Rates { get; set; }
+
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+        //    modelBuilder.Entity<Book>()
+        //        .HasMany(c => c.Rates).WithMany(i => i.Books)
+        //        .Map(t => t.MapLeftKey("BookId")
+        //            .MapRightKey("RateId")
+        //            .ToTable("Book_Rate"));
+
+
+        //    modelBuilder.Entity<Book>()
+        //        .HasMany(c => c.Checkouts).WithMany(i => i.Books)
+        //        .Map(t => t.MapLeftKey("BookId")
+        //            .MapRightKey("CheckoutId")
+        //            .ToTable("Book_CheckOut"));
+        //}
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -36,6 +57,6 @@ namespace CIS411_Final_Library.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<CIS411_Final_Library.Models.SchoolModel> SchoolModels { get; set; }
+        //public System.Data.Entity.DbSet<CIS411_Final_Library.Models.SchoolModel> SchoolModels { get; set; }
     }
 }
