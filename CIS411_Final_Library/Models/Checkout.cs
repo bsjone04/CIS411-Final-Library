@@ -13,9 +13,9 @@ namespace CIS411_Final_Library.Models
     {
         public int CheckoutID { get; set; }
 
-        public string UserId { get; set; }
+        //public string UserId { get; set; }
 
-        public int BookId { get; set; }
+        //public int BookId { get; set; }
 
         [DataType(DataType.DateTime)]
         [DisplayName("Checkout Date")]
@@ -32,7 +32,7 @@ namespace CIS411_Final_Library.Models
         public DateTime DueDate { get; set; }
 
 
-        public virtual ApplicationUser ApplicationUsers { get; set; }       
+        //public virtual ApplicationUser ApplicationUsers { get; set; }       
         public virtual ICollection <Book> Books { get; set; }
 
 

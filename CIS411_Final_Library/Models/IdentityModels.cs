@@ -27,6 +27,7 @@ namespace CIS411_Final_Library.Models
         public DbSet<Book> Books { get; set; }
         public DbSet<Checkout> Checkouts { get; set; }
         public DbSet<Rate> Rates { get; set; }
+        //public DbSet <BookListReview> BookListReview { get; set; }
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{

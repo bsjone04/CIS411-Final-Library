@@ -1,0 +1,13 @@
+﻿@model CIS411_Final_Library.Models.Book
+
+
+@{
+    ViewBag.Title = "Review";
+}
+
+<h2>Review for @Model.Title</h2>
+@Html.Partial("_Review", Model.Rates)
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { bookId = Model.BookID })
+</p>
