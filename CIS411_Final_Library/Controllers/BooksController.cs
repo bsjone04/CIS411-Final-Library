@@ -10,6 +10,7 @@ using CIS411_Final_Library.Models;
 
 namespace CIS411_Final_Library.Controllers
 {
+    [Authorize]
     public class BooksController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

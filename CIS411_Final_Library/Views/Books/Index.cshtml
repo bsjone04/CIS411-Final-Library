@@ -7,7 +7,14 @@
 <h2>Index</h2>
 
 <p>
+    @if(User.IsInRole("Admin"))
+    {
     @Html.ActionLink("Create New", "Create")
+    }
+    @if (User.IsInRole("Author"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
 </p>
 <table class="table">
     <tr>
@@ -34,12 +41,41 @@
         <td>
             @Html.DisplayFor(modelItem => item.Quantity)
         </td>
+@if (Request.IsAuthenticated)
+
+{
+
+    if (User.IsInRole("Admin"))
+    {
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BookID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BookID }) |
-            @Html.ActionLink("Review", "Index","Rates", new { id = item.BookID }, null) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BookID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.BookID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.BookID }) |
+            @Html.ActionLink("Review", "Index", "Rates", new { id = item.BookID }, null) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.BookID })
         </td>
+    }
+
+    if (User.IsInRole("Author"))
+    {
+        <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.BookID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.BookID })
+       </td >
+    }
+    if (User.IsInRole("User"))
+    {
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.BookID }) |
+            @Html.ActionLink("Review", "Index", "Rates", new { id = item.BookID }, null)
+        </td>
+    }
+}
+else
+{
+    <td>
+        @Html.ActionLink("Details", "Details", new { id = item.BookID })
+    </td>
+}
     </tr>
 }
 

@@ -26,7 +26,7 @@ namespace CIS411_Final_Library
             if (!roleManager.RoleExists("Admin"))
             {
 
-                // first we create Admin role   
+                //first we create Admin role
                 var role = new IdentityRole();
                 role.Name = "Admin";
                 roleManager.Create(role);
@@ -38,7 +38,7 @@ namespace CIS411_Final_Library
 
                 var chkUser = UserManager.Create(user, userPWD);
 
-                //Add default User to Role Admin   
+                //Add default User to Role Admin
                 if (chkUser.Succeeded)
                 {
                     var result1 = UserManager.AddToRole(user.Id, "Admin");

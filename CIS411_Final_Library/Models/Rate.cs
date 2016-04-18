@@ -13,7 +13,7 @@ namespace CIS411_Final_Library.Models
     {
         public int RateID { get; set; }
 
-        //public string UserId { get; set; }
+        public string UserId { get; set; }
 
         public int BookId { get; set; }
 
@@ -27,8 +27,8 @@ namespace CIS411_Final_Library.Models
         //users can rate many book
         //books can be rate by many user
 
-        //public virtual ApplicationUser ApplicationUsers { get; set; }
-       //public virtual ICollection <Book> Books { get; set; }
+        public virtual ApplicationUser ApplicationUsers { get; set; }
+        //public virtual ICollection <Book> Books { get; set; }
 
     }
 }

@@ -11,6 +11,8 @@ namespace CIS411_Final_Library.Controllers
     public class HomeController : Controller
     {
         ApplicationDbContext db = new Models.ApplicationDbContext();
+
+        [AllowAnonymous]
         public ActionResult Index(string searchTerm = null)
         {
             var model =

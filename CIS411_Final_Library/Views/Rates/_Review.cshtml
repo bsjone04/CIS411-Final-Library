@@ -21,7 +21,10 @@
             @Html.DisplayFor(modelItem => item.Comment)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RateID })
+@if (User.IsInRole("Admin") || User.IsInRole("User"))
+{
+            @Html.ActionLink("Edit", "Edit", new { id = item.RateID })
+}   
         </td>
     </tr>
 }

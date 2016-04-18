@@ -58,6 +58,5 @@ namespace CIS411_Final_Library.Models
             return new ApplicationDbContext();
         }
 
-        //public System.Data.Entity.DbSet<CIS411_Final_Library.Models.SchoolModel> SchoolModels { get; set; }
     }
 }

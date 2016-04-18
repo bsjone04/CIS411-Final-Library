@@ -13,7 +13,7 @@ namespace CIS411_Final_Library.Models
     {
         public int BookID { get; set; }
 
-        //public string UserId { get; set; }
+        public string UserId { get; set; }
 
         [Required(ErrorMessage = "Title is required")]
         [StringLength(50, ErrorMessage = "Title cannot be longer than 50 characters.")]
@@ -37,7 +37,7 @@ namespace CIS411_Final_Library.Models
             // can be check by many user
 
 
-        //public virtual ApplicationUser ApplicationUsers { get; set; }
+        public virtual ApplicationUser ApplicationUsers { get; set; }
         public virtual ICollection <Rate> Rates { get; set; }
         public virtual ICollection <Checkout> Checkouts { get; set; }
 

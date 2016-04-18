@@ -9,16 +9,15 @@ using System.Web.Mvc;
 
 namespace CIS411_Final_Library.Controllers
 {
-    //[Authorize(Roles = "Admin")]
 
     public class UserController : Controller
     {
         // GET: User
-        public ActionResult Index()
+        public ActionResult Index()            
         {
             if (User.Identity.IsAuthenticated)
             {
-                var user = User.Identity;
+                var user = User.Identity ;
                 ViewBag.Name = user.Name;
 
                 ViewBag.displayMenu = "No";

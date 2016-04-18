@@ -141,7 +141,7 @@ namespace CIS411_Final_Library.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains(" "))
                                             .ToList(), "Name", "Name");
             return View();
         }
@@ -155,7 +155,7 @@ namespace CIS411_Final_Library.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Firstname + " " +model.Lastname, Email = model.Email, FirstName = model.Firstname, LastName = model.Lastname };
+                var user = new ApplicationUser { UserName = model.Email, FirstName = model.Firstname, LastName = model.Lastname, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -170,7 +170,7 @@ namespace CIS411_Final_Library.Controllers
                     //Ends Here    
                     return RedirectToAction("Index", "User");
                 }
-                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains(" "))
                                           .ToList(), "Name", "Name");
                 AddErrors(result);
             }

@@ -9,5 +9,8 @@
 @Html.Partial("_Review", Model.Rates)
 
 <p>
-    @Html.ActionLink("Create New", "Create", new { bookId = Model.BookID })
+    @if (User.IsInRole("Admin") || User.IsInRole("Author"))
+    {
+        @Html.ActionLink("Create New", "Create", new { bookId = Model.BookID })
+    }
 </p>

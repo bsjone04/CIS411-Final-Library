@@ -29,6 +29,11 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RateID }) |
+@if (User.IsInRole("Admin") || User.IsInRole("Author"))
+{
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RateID }) 
+}
+
     @Html.ActionLink("Back to List", "Index")
+
 </p>

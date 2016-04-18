@@ -24,4 +24,20 @@
     </div>
     
 }
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.EntityFramework;
+
+
+<div>
+    @{
+        if (Request.IsAuthenticated)
+        {
+            var manager = new UserManager< >(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+            <p>@currentUser.EmailID</p>
+            <p>@currentUser.FirstName @currentUser.LastName</p>
+        }
+    }
+
+</div>
 
