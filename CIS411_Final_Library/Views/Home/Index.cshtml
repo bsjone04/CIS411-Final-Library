@@ -4,40 +4,39 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Library</h2>
-
-<form method="get">
-    <input type="search" name="searchTerm" />
-    <input type="submit" value="Search BY title"/>
-</form>
-
-@foreach (var item in Model)
-{
-    <div>
-        <h4>@item.Title</h4>
-        <div>
-          <p>Creation Date: @item.CreationDate </p> 
-           <p>Quantity:@item.Quantity</p> 
-            <p>Rate: @item.Rate</p> 
-        </div>
-        <hr/>
-    </div>
-    
-}
-@using Microsoft.AspNet.Identity;
-@using Microsoft.AspNet.Identity.EntityFramework;
-
-
-<div>
-    @{
-        if (Request.IsAuthenticated)
-        {
-            var manager = new UserManager< >(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-            var currentUser = manager.FindById(User.Identity.GetUserId());
-            <p>@currentUser.EmailID</p>
-            <p>@currentUser.FirstName @currentUser.LastName</p>
-        }
-    }
-
+<div class="jumbotron">
+    <h><center> Welcome To</center></h>
+    <h1 align="center">CIS411 Book Library</h1>
+    <p align="center">A Place to RATE and REVIEW books</p>
+    <p><center> <img src="/images/4.5_StarRating-1024x167.png" style="width:250px;height:45px;" /> </center></p>
 </div>
 
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2><u>Group Members</u></h2>
+
+        <p>Alaa Hawsawi</p>
+        <p>Brent Jones</p>
+        <p>Eythan Decker</p>
+        <p>Khang Dinh</p>
+    </div>
+
+    <div class="col-md-4">
+        <h2><u>About</u></h2>
+        <p>
+            This is our final project for CIS411. It's a web application where authors and their readers can interact with each other. Authors can list their books and readers can comment, rate and review it.
+        </p>
+    </div>
+
+
+    <div class="col-md-4">
+        <h2><u>Contact Us</u></h2>
+        <p><a class="btn btn-default">Email &raquo;</a></p>
+        <p><a class="btn btn-primary" href="https://www.facebook.com/">Facebook &raquo;</a></p>
+        <p><a class="btn btn-info" href="https://www.twitter.com/">Twitter &raquo;</a></p>
+        <p><a class="btn btn-danger" href="https://plus.google.com/collections/featured">Google+ &raquo;</a></p>
+    </div>
+
+</div>
