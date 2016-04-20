@@ -13,7 +13,7 @@ namespace CIS411_Final_Library.Controllers
         ApplicationDbContext db = new Models.ApplicationDbContext();
 
         [AllowAnonymous]
-        public ActionResult Index(string searchTerm = null)
+        public ActionResult About(string searchTerm = null)
         {
             var model =
                 db.Books
@@ -31,18 +31,18 @@ namespace CIS411_Final_Library.Controllers
             return View(model);
         }
 
-        //public ActionResult About()
-        //{
-        //    ViewBag.Message = "Your application description page.";
+        public ActionResult Index()
+        {
+            ViewBag.Message = "Your application description page.";
 
-        //    return View();
-        //}
+            return View();
+        }
 
-        //public ActionResult Contact()
-        //{
-        //    ViewBag.Message = "Your contact page.";
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
 
-        //    return View();
-        //}
+            return View();
+        }
     }
 }

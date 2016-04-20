@@ -1,7 +1,28 @@
-﻿@{
+﻿@model IEnumerable<CIS411_Final_Library.Models.BookListReview>
+
+@{
     ViewBag.Title = "About";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+
+
+<form method="get">
+    <input type="search" name="searchTerm" />
+    <input type="submit" value="Search BY title" />
+</form>
+
+@foreach (var item in Model)
+{
+    <div>
+        <h4>@item.Title</h4>
+        <div>
+            <p>Creation Date: @item.CreationDate </p>
+            <p>Quantity:@item.Quantity</p>
+            <p>Rate: @item.Rate</p>
+        </div>
+        <hr />
+    </div>
+}
